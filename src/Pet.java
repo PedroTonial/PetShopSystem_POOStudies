@@ -7,16 +7,16 @@ public class Pet {
     private String breed;
     private String ownerName;
     private String ownerPhone;
-    private String [] services;
+    private Services services;
 
-    public Pet (String name, String age,String type, String breed, String ownerName, String ownerPhone){
+    public Pet (String name, String age,String type, String breed, String ownerName, String ownerPhone, Services services){
         this.name = name;
         this.age = age;
         this.type = type;
         this.breed = breed;
         this.ownerName=ownerName;
         this.ownerPhone= ownerPhone;
-        //this.services = services;
+        this.services = services;
     }
 
     public void setName(String name){
@@ -31,10 +31,10 @@ public class Pet {
     public String getAge(){
         return this.age;
     }
-    public String[] getServices(){
+    public Services getServices(){
         return this.services;
     }
-    public void setServices(String [] services){
+    public void setServices(Services services){
         this.services = services;
     }
 
@@ -43,5 +43,7 @@ public class Pet {
                 "-----------------------------\n"+"Nome: " + name + " | Tipo: " + type + " | Raça: " + breed + " | \nIdade: " + age +
                         " | Dono: " + ownerName + " | Telefone: " + ownerPhone + "\n-----------------------------\n";
     }
+
+
 }
 

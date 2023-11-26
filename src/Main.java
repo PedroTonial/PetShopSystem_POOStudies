@@ -7,20 +7,25 @@ public class Main {
         CadastroPet registeredPets = new CadastroPet();
         int opcao;
         do {
-            System.out.println("----- Menu de Opções -----");
-            System.out.println("1. Adicionar Pet");
-            System.out.println("2. Remover Pet");
-            System.out.println("3. Pets cadastrados");
-            System.out.println("4. Pets ordenados");
-            System.out.println("5. Calcular média dos serviços utilizados");
-            System.out.println("6. Calcular porcentagem de cada serviço usado");
-            System.out.println("7. Indicar posição dos Pets no vetor");
-            System.out.println("0. Sair");
-            System.out.print("Escolha uma opção: ");
+            System.out.println("------------------------------------------------");
+            System.out.println("\t\t\tMENU");
+            System.out.println("1. Adicionar Pet\n" +
+                    "2. Remover Pet\n" +
+                    "3. Pets cadastrados\n" +
+                    "4. Pets ordenados\n" +
+                    "5. Calcular média dos serviços utilizados\n" +
+                    "6. Calcular porcentagem de cada serviço usado\n" +
+                    "7. Indicar posição dos Pets no vetor\n" +
+                    "0. Sair");
+            System.out.println("------------------------------------------------");
+            System.out.print("Escolha a partir do número da opção:");
             opcao = input.nextInt();
+            System.out.println(" \n ------------------------------------------------");
+
 
             switch (opcao) {
                 case 1:
+                    //Registrando um pet ao vetor
                     registeredPets.addPet(registeredPets.newPet());
                     break;
                 case 2:
@@ -38,13 +43,34 @@ public class Main {
                    registeredPets.printRegisteredPetsAlphabetical();
                     break;
                 case 5:
+                    //Calculando a média do numero de serviços de um pet selecionado pelo nome
+                    System.out.print("Nome do pet para calcular a média dos serviços utilizados: ");
+                    String petNameForAverage = input.next();
+                    Pet selectedPetForAverage = registeredPets.getPet(petNameForAverage);
 
+                    if (selectedPetForAverage != null) {
+                        Services petServices = selectedPetForAverage.getServices();
+                        petServices.averageNumServices();
+                        petServices.averageServicePrice();
+                    } else {
+                        System.out.println("Pet não encontrado.");
+                    }
                     break;
                 case 6:
+                    //Calculando a porcentagem de cada serviço do pet selecionado
+                    System.out.print("Nome do pet para calcular a porcentagem de serviços utilizados: ");
+                    String petNameForPercentage = input.next();
+                    Pet selectedPetForPercentage = registeredPets.getPet(petNameForPercentage);
 
+                    if (selectedPetForPercentage != null) {
+                        Services petServices = selectedPetForPercentage.getServices();
+                        petServices.calculateServicePercentage();
+                    } else {
+                        System.out.println("Pet não encontrado.");
+                    }
                     break;
                 case 7:
-                    // Indicar posição dos Pets no vetor
+                    // Indica a posição do pet no registro
                     registeredPets.printPetPosition();
                     break;
                 case 0:
