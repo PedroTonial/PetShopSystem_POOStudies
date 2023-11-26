@@ -122,7 +122,7 @@ public class Services {
 
         double averagePrice = (double) totalPrice / totalServices;
 
-        System.out.printf("Preço médio dos serviços feitos no pet: %.2f" , averagePrice + "\n");
+        System.out.printf("Preço médio dos serviços feitos no pet: %.2f" , averagePrice , "\n");
     }
 
     public void calculateServicePercentage() {
